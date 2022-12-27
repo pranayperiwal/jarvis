@@ -1,22 +1,28 @@
 from flask import Flask, request, Response
+from flask_cors import CORS, cross_origin
 import whisper
 import os
 import openai
-# from sseclient import SSEClient
-from datetime import datetime
-import time
 
-app = Flask(__name__)
+app = Flask(__name__ , static_folder='../build', static_url_path='/')
+CORS(app)
+
+
 model = whisper.load_model("base.en")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 result = {}
 
 @app.route('/')
-def home_endpoint():
-    return 'hello world'
+@cross_origin()
+def index():
+    return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
 
 
 @app.route('/receive', methods=['POST'])
+@cross_origin()
 def receive_audio():
     files = request.files
     file = files.get('file')
@@ -32,15 +38,16 @@ def receive_audio():
 #         print(now)
 #         # DO NOT forget the prefix and suffix
 #         yield 'data: %s\n\n' % now
-
-def get_message():
-    '''this could be any function that blocks until data is ready'''
-    time.sleep(1.0)
-    s = time.ctime(time.time())
-
-    return s
+#
+# def get_message():
+#     '''this could be any function that blocks until data is ready'''
+#     time.sleep(1.0)
+#     s = time.ctime(time.time())
+#
+#     return s
 
 @app.route('/gptresponse', methods=['GET'])
+@cross_origin()
 def get_gpt_response():
     # def eventStream():
     # #     while True:
