@@ -7,70 +7,81 @@ import axios from "axios";
 function App() {
   const [transcription, settranscription] = useState("");
   const [gptResponse, setGptResponse] = useState("");
-  const [loading, setloading] = useState(false);
+  const [userLoading, setUserLoading] = useState(false);
+  const [AILoading, setAILoading] = useState(false);
 
   useEffect(() => {
-    const eventSrc = new EventSource("/gptresponse");
-
     if (transcription !== "") {
-      var str = "";
-      setloading(true);
+      // const eventSrc = new EventSource("/gptresponse");
 
-      eventSrc.onerror = (e) => {
-        console.error(e);
-        console.error("error in sse");
-        eventSrc.close();
-        setloading(false);
-      };
+      // var str = "";
+      setAILoading(true);
 
-      eventSrc.onmessage = (event) => {
-        console.log("event received");
-        console.log(event.data);
-        setloading(false);
-        str += event.data;
-        // console.log(str);
-        setGptResponse(str);
+      // eventSrc.onerror = (e) => {
+      //   console.error(e);
+      //   console.error("error in sse");
+      //   eventSrc.close();
+      //   setloading(false);
+      // };
 
-        // console.log(event.data);
-        // setGptResponse(gptResponse + event.data);
-        // console.log(gptResponse);
-      };
-      // axios
-      //   .get("/gptresponse")
-      //   .then((res) => {
-      //     setGptResponse(res.data);
-      //     setloading(false);
-      //   })
-      //   .catch((error) => {
-      //     setloading(false);
-      //     if (error.response) {
-      //       console.error(error.response);
-      //       console.error(error.response.status);
-      //       console.error(error.response.headers);
-      //     }
-      //   });
-    } else {
-      eventSrc.close();
+      // eventSrc.onmessage = (event) => {
+      //   console.log("event received");
+      //   console.log(event.data);
+      //   setloading(false);
+      //   str += event.data;
+      //   // console.log(str);
+      //   setGptResponse(str);
+
+      //   // console.log(event.data);
+      //   // setGptResponse(gptResponse + event.data);
+      //   // console.log(gptResponse);
+      // };
+      axios
+        .get("/gptresponse")
+        .then((res) => {
+          setGptResponse(res.data);
+          setAILoading(false);
+        })
+        .catch((error) => {
+          setAILoading(false);
+          if (error.response) {
+            console.error(error.response);
+            console.error(error.response.status);
+            console.error(error.response.headers);
+          }
+        });
     }
+    // else {
+    //   eventSrc.close();
+    // }
 
-    return () => {
-      eventSrc.close();
-    };
+    // return () => {
+    //   eventSrc.close();
+    // };
   }, [transcription]);
 
   return (
     <div className="App">
-      <RecordView setLoading={setloading} setTranscription={settranscription} />
+      <h2>AI Bot</h2>
+      <RecordView
+        setLoading={setUserLoading}
+        setTranscription={settranscription}
+        setGptResponse={setGptResponse}
+      />
 
-      <ScaleLoader color="#5f5f5f" loading={loading} />
+      <div className="chatting-box">
+        <ScaleLoader color="#5f5f5f" loading={userLoading} />
 
-      <p>{transcription}</p>
-      {transcription && (
-        <div>
-          <p>GPT response:</p>
-          <p>{gptResponse}</p>
-        </div>
-      )}
+        {transcription && (
+          <div>
+            <p style={{ color: "red" }}>You: </p>
+            <p>{transcription}</p>
+            <p style={{ color: "red" }}>AI: </p>
+          </div>
+        )}
+        <ScaleLoader color="#5f5f5f" loading={AILoading} />
+        {gptResponse && <p>{gptResponse}</p>}
+      </div>
     </div>
   );
 }

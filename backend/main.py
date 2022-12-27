@@ -2,14 +2,14 @@ from flask import Flask, request, Response
 import whisper
 import os
 import openai
-from sseclient import SSEClient
+# from sseclient import SSEClient
 from datetime import datetime
 import time
 
 app = Flask(__name__)
-model = whisper.load_model("base")
+model = whisper.load_model("base.en")
 openai.api_key = os.getenv("OPENAI_API_KEY")
-result = ""
+result = {}
 
 @app.route('/')
 def home_endpoint():
@@ -42,32 +42,31 @@ def get_message():
 
 @app.route('/gptresponse', methods=['GET'])
 def get_gpt_response():
-    def eventStream():
-    #     while True:
-            # wait for source data to be available, then push it
-
-
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=result["text"],
-            max_tokens=1250,
-            temperature=0.7,
-            stream=True
-        )
-
-        for text in response:
-            # print(text.choices[0].text, datetime.now())
-            yield "data: {}\n\n".format(text.choices[0].text)
-            # time.sleep(1)
-    # response = openai.Completion.create(
+    # def eventStream():
+    # #     while True:
+    #         # wait for source data to be available, then push it
+    #
+    #
+    #     response = openai.Completion.create(
     #         model="text-davinci-003",
     #         prompt=result["text"],
     #         max_tokens=1250,
     #         temperature=0.7,
     #         stream=True
     #     )
-
-    # return response
-    return Response(eventStream(), mimetype="text/event-stream")
+    #
+    #     for text in response:
+    #         # print(text.choices[0].text, datetime.now())
+    #         yield "data: {}\n\n".format(text.choices[0].text)
+    #         # time.sleep(1)
+    response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=result["text"],
+            max_tokens=1250,
+            temperature=0.7,
+            # stream=True
+        )
+    return response.choices[0].text
+    # return Response(eventStream(), mimetype="text/event-stream")
 
 
