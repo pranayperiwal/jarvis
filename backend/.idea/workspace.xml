@@ -4,9 +4,6 @@
     <list default="true" id="2307b91c-7be0-434e-b549-8976628b2858" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Procfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.wav" beforeDir="false" afterPath="$PROJECT_DIR$/test.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/asset-manifest.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/index.html" beforeDir="false" />
