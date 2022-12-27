@@ -1,0 +1,11 @@
+node_modules
+backend/env
+backend/.env
+backend/__pycache__
+backend/build/
+backend/dist
+backend/downloads/
+
+*.egg-info/
+*.egg
+
