@@ -1,14 +1,19 @@
 from flask import Flask, request, Response
 from flask_cors import CORS, cross_origin
+import replicate
 import whisper
 import os
 import openai
+import base64
 
 app = Flask(__name__ , static_folder='client/build', static_url_path='/')
 CORS(app)
 
 
 model = whisper.load_model("base.en")
+# model = replicate.models.get("openai/whisper")
+# version = model.versions.get("30414ee7c4fffc37e260fcab7842b5be470b9b840f2b608f5baa9bbef9a259ed")
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 result = {}
 
@@ -29,6 +34,13 @@ def receive_audio():
     file.save(os.path.abspath("test.wav"))
     global result
     result = model.transcribe("test.wav")
+
+    # enc = base64.b64encode(open("test.wav", "rb").read())
+    # uri = "data:audio/wav;base64,"+ enc.decode()
+
+    # result1 = version.predict(audio=uri, model="base", transcription="plain text", translate=False, language="en")
+    # print(result1["transcription"])
+    # result["text"] = result1["transcription"]
     return result["text"]
 
 # def eventStream():

@@ -9,3 +9,5 @@ backend/downloads/
 *.egg-info/
 *.egg
 
+code
+jarvis-client
