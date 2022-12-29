@@ -6,6 +6,8 @@ import os
 import openai
 import base64
 
+from utility import synthesize_speech
+
 app = Flask(__name__ , static_folder='client/build', static_url_path='/')
 CORS(app)
 
@@ -86,7 +88,9 @@ def get_gpt_response():
             temperature=0.7,
             # stream=True
         )
+    synthesize_speech(response.choices[0].text)
     return response.choices[0].text
+    # gpt response stored in output.mp3
+
     # return Response(eventStream(), mimetype="text/event-stream")
 
-#test
