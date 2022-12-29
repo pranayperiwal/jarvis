@@ -20,6 +20,7 @@ result = {}
 @app.route('/')
 @cross_origin()
 def index():
+    return {"text": "text recevied"}
     return app.send_static_file('index.html')
 
 if __name__ == '__main__':
@@ -88,4 +89,4 @@ def get_gpt_response():
     return response.choices[0].text
     # return Response(eventStream(), mimetype="text/event-stream")
 
-
+#test

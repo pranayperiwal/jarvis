@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "disco-technique-372902",
+  "private_key_id": "a0fd4c68bbef5f5b389fcc600730059c8b947446",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUECYu2h2dgiCV\nvJcYIGGBCsmBhgGFLQsdcnAe9i5+HypCFCDZLglIqrVWNffdHUt3V7ZX/nbQ2AEi\nPGIsXmACUd8vMoBtwjEMYKjnLv5KpAKKwZ+NkEIceUvIGf344sLC9d5C4H+kVDOK\n1DRnkfl/KZKeaQGWlTAg1/J5jIhcnSRCn7XszFM3VwUGIIgnLzTEZZtf0TJLxTQy\nlRVn6eedttyi6HD06hMYNTJdPh7Ovk1oy8wE8ohbw9NTzEqomLm7L2q2rZs2rTGJ\nJYNycZOKrOCwh4zUFuTvQ5C6YbWM/0HNEZEwBY+2cGmNs4ElSpYs0iSh4t/mv6xM\nSrB22b67AgMBAAECggEAPHOJe2iPXd8iua/5ip6x4JNMaWcSmNKmrpuqHmIJ4nGL\n+dWpAbLzlGkqR2waantK9AtqRev9i9AdSmKX/KB9l4Tg2C7I08dM6k5Ot7Dunv/u\nj8N1BsHm1CRL5gOCt4qx1RK4b9qkEq5UKvLwAHdPg/UvySB7RwVbVJWGiMzxYcoh\n3sfmGFwJDNkG/W4sSltouMyCRXGCCnb+yV43mti14VNW/dpewS1+WWPYlvmxCz26\n9A9WMobZKKqzuKubTwe8MRW3Z5dEv+yg1/Yfe/xIduPDa1DTU32B4XW0RI1dlocK\n2XjC3KBOVTpOJ6wB1W66I6fQvizgOJKHhIEVgXba/QKBgQDHDnCl1QVhREXv5btF\nZORKiP1lAmXhC1q2/2qPLsW2kgaT55kG/mIX/CI0iy7CLyM1d1n18FokrnSvuvJU\nO8msoLDs3QMWxQv0Sr/YBms+6MuT1+GI4VAqVBdeO82grJDwqZF/k+wi3UOJ/CTN\nT25e9pHsl3v+6lnQ3nCl1hLInQKBgQC+a0yTIWVahbwBgRKbFcL4ivyRmacoK19C\nYXex/4/KD8uzhqvwd0vtDmaGVblZwP5UYyQZPEQfY7LlDSUa8UnO+q7vsKABGcEc\nSbX/hLrh6aNlZT+zPoSueZhSN6/7yr2IEKbC0Erv2sWPjUAjvvg4Aw0hQYTCRS8x\nYKvw25WpNwKBgHhm8ppMHIH2AvuVkM3rte6jp+nmJmuWK5vPKMxMtUi2UQY7qyNA\n0WLCnon7uh+41WostBx/8naHk4sL4DI1K8qgNARBtvGZ5J4ybJIlZ89YjnLxvLjH\n2G6SCMR2Fe3fE5iOaLSra8S243heLICHUDJeoGtkQZsyc3tUYPzeXOQ9AoGBALhh\np6U0CjMsGc8PD1gSK1eFJWlK8jwIO1ZIkKFPyAitYN52Qdk3etKRRh8/tJk/MkW+\nNf8lhwUqAdie8NX03DZKMMgxK83FBWOB0HQaLud/11LgRl0m5U0YurCp8YMLXpj5\nHrC3BkjYesI00O2MBkgeVEFmcsm2OitC41r3FSTjAoGBAMXce/iqdQsabexMuvP7\nZ6kyQgU7lCK4DKjLfDLu7R96JAqXa56jYOX8qEm9nFdGZ/EUq4z+I0WXNSjpumtQ\nvovmEteo+dEO6t0yT/QepE6AWzAUJfbSxdAja7SsV3vrU2kkpLwV2ce3+QUwblvJ\nlmuX1qjxx1bS5zDoRzDPIxql\n-----END PRIVATE KEY-----\n",
+  "client_email": "text-to-speech@disco-technique-372902.iam.gserviceaccount.com",
+  "client_id": "108988865908037252728",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/text-to-speech%40disco-technique-372902.iam.gserviceaccount.com"
+}
