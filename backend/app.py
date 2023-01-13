@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template, send_file
 from flask_cors import CORS, cross_origin
 import replicate
 import whisper
@@ -89,8 +89,10 @@ def get_gpt_response():
             # stream=True
         )
     synthesize_speech(response.choices[0].text)
-    return response.choices[0].text
-    # gpt response stored in output.mp3
+    # return response.choices[0].text
+
+    # TODO: maybe don't need to save as mp3, can send binary stream directly
+    return send_file("./output.mp3", mimetype="audio/mp3")
 
     # return Response(eventStream(), mimetype="text/event-stream")
 

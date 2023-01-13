@@ -34,4 +34,3 @@ def synthesize_speech(text):
         out.write(response.audio_content)
         print('Audio content written to file "output.mp3"')
 
-synthesize_speech("Hello my name is Abhi")
